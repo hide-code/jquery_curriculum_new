@@ -21,12 +21,47 @@
     </div>
     <script src="../../common/js/jquery.js"></script>
     <script>
-      // 今回やるのはモーダルです。
-      // .modal-show をクリックすることで .modal をfadeInさせる。
-      // .modal-close をクリックで .modal をfadeOutさせる。
-      // .click() クリック時のイベントを登録する。
-      // .fadeIn() 一定時間かけてフェードインする。
-      // .fadeOut() 一定時間かけてフェードアウトする。
+      $(function() {
+        // 今回やるのはモーダルです。
+        // .modal-show をクリックすることで .modal をfadeInさせる。
+        // .modal-close をクリックで .modal をfadeOutさせる。
+        // .click() クリック時のイベントを登録する。
+        // .fadeIn() 一定時間かけてフェードインする。
+        // .fadeOut() 一定時間かけてフェードアウトする。
+        function Modal() {
+          this.$modal = $('.modal');
+          this.$modalShow = $('.modal-show');
+          this.$modalClose = $('.modal-close');
+          this.ANIMATE_TIME = 500;
+          this.bind);
+        }
+
+        Modal.prototype.hoge = function() {
+          this.$modalShow.on('click', this.show.bind(this));
+          this.$modalClose.on('click', this.hide.bind(this));
+          console.log(this);
+        };
+
+        Modal.prototype.show = function() {
+          this.$modal.fadeIn(this.ANIMATE_TIME);
+        };
+
+        Modal.prototype.hide= function() {
+          this.$modal.fadeOut(this.ANIMATE_TIME);
+        };
+
+        
+          new Modal();
+            // var modal =
+          // console.log(modal);
+      });
+      // $('.modal-show').click(function() {
+      //   $('.modal').fadeIn(1000);
+      // });
+
+      // $('.modal-close').click(function() {
+      //   $('.modal').fadeOut(1000);
+
     </script>
   </body>
 </html>

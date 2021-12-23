@@ -57,6 +57,23 @@
       // .next() 要素の隣の要素を取得します。これは使わなくてもできます。
       // .children() 要素の子要素を取得します。
       // .stop() 現在動作中のアニメーション処理を全て中止します。
+      $(function() {
+
+        //menu__list__title(タイトル部分)をhoverしたら動作開始
+        $(".menu__list__title").hover(function(){open($(this))}, function(){close($(this))});
+      });
+
+      function open(hover_over) {
+        //hoverしたタイトルのとなりの要素(今回はタイトルは<p>で隣の親要素<ul>の中身<li>を表示させたい)をスライドさせながら表示する
+        hover_over.next().stop().slideDown();//slideDownはulタグに対して実行するもの、liではない
+      } 
+
+      function close(hover_out) {
+      //タイトルの隣の要素すべてをスライドして非表示にする
+        hover_out.next().stop().slideUp();
+      }
+
     </script>
   </body>
 </html>
+

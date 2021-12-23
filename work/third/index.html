@@ -30,6 +30,46 @@
       // .eq() 引数に応じたindexの要素を指定します。
       // .addClass() クラスを追加します。
       // .removeClass() クラスを削除します。
+      $(function() {
+        function Modal() {
+          this.$modal = $('.nav.li');
+          this.$modalShow = $('.modal-show');
+          this.$modalClose = $('.modal-close');
+          this.ANIMATE_TIME = 500;
+          this.bind();
+        }
+
+        Modal.prototype.bind = function() {
+          this.$modalShow.on('click', this.show.bind(this));
+          this.$modalClose.on('click', this.hide.bind(this));
+        };
+
+        Modal.prototype.show = function() {
+          this.$modal.fadeIn(this.ANIMATE_TIME);
+        };
+
+        Modal.prototype.hide= function() {
+          this.$modal.fadeOut(this.ANIMATE_TIME);
+        };
+
+        $(function() {
+          var modal = new Modal();
+        });
+        
+		    // // liをクリックしたら発動
+		    // $('.nav li').click(function() {
+
+				//   //クリックしたindexを保持
+				//   var index = $(this).index();
+        //   //console.log($(this).index());
+
+        //   //すべての表示を消す
+        //   $('.contents li').addClass('is-hidden');
+
+        //   //クリックされたindexに対応するcontentsのli要素についているis-hiddenクラスを削除する
+        //   $('.contents li').eq(index).removeClass('is-hidden');
+		    // });
+      });
     </script>
   </body>
 </html>
