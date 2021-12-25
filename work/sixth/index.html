@@ -33,17 +33,17 @@
 
       // 下記URLにAPIの仕様が載っているので、ブラウザで開いて参考にしてください。
       // https://webservice.rakuten.co.jp/api/bookstotalsearch/
-
+      
       
       var val = '';//検索ワード用変数
       const start_page = 1;//修正③検索するを押した時に、必ず１ページ目から表示するため、そのフラグ
       var page = start_page;//ページ用変数,グローバル
-
+      
       //修正①エラーメッセージ、ページャ、ブックリストを空にしてから、次のページを更新する。その関数
       //initialize:初期化するという意味
       function page_initialize() {
-        $('div[data-js="error-message"]').empty();
         $('ul[data-js="book-lists"]').empty();//ページャの削除
+        $('div[data-js="error-message"]').empty();
         $('div[data-js="pager"]').remove();
       }
 
@@ -131,6 +131,7 @@
         page++;
         do_ajax();
       });
+      ''
 
       //検索<button>タグがクリックされたら実行する。
       $('.search__btn').on('click',function() {
